@@ -1,22 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './features/login/Login';
-import SignUp from './features/signup/SignUp';
+import HomeScreen from './features/home/HomeScreen';
+import { ToastProvider } from 'react-native-toast-notifications'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SignUp />
-    </View>
+    <ToastProvider>
+      <View style={styles.container}>
+        <HomeScreen />
+      </View>
+    </ToastProvider>
   );
 }
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding:10
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+    paddingTop:30,
+    paddingBottom:5,
   },
 })
 
