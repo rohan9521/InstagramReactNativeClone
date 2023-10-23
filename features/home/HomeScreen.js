@@ -3,14 +3,23 @@ import React from 'react'
 import BottomBar from './BottomBar'
 import Stories from '../stories/Stories'
 import TopBar from './TopBar'
+import { useState } from 'react'
+import PostView from '../posts/PostView'
 
 const HomeScreen = () => {
+    const [posts, setPosts] = useState([1, 2])
     return (
         <View style={styles.container}>
-            <TopBar/>
+            <TopBar style={styles.topBar} />
             <Stories />
             <View style={styles.feed}>
-                <Text>HomeScreen</Text>
+                {
+                    posts.map((posts) => (
+
+                        <PostView />
+
+                    ))
+                }
             </View>
             <BottomBar style={styles.bottomBar} />
         </View>
@@ -24,20 +33,22 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
     },
-    stories:{
-  
+    stories: {
+
     },
-    feed:{
-        flex:14 ,
+    feed: {
+        flex: 14,
         width: '100%',
-        borderWidth:3,
-        borderColor:'black',
+     
     },
     bottomBar: {
         flex: 1,
         height: 30,
         width: '100%',
-        borderWidth:3,
-        borderColor:'black',
+        borderWidth: 3,
+        borderColor: 'black',
+    },
+    topBar: {
+        flex: 5,
     }
 })

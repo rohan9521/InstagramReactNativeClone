@@ -1,10 +1,15 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 
-const Posts = () => {
+const Posts = (props) => {
   return (
     <View>
-      <Text>Posts</Text>
+     <Image
+      source={{
+        uri:props.contentImageUrl
+      }}
+     />
+     
     </View>
   )
 }

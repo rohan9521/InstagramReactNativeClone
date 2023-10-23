@@ -2,18 +2,20 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useToast } from "react-native-toast-notifications";
+import { Image } from 'react-native';
 const TopBar = () => {
-    const toast = useToast();
-  let showSome = ()=>{
-        toast.show("hi hello!!")
+  const toast = useToast();
+  let showSome = () => {
+    toast.show("hi hello!!")
   }
   return (
     <View style={styles.container}>
-      <Icon name="home" size={25} color="#080808" onPress={showSome}  />
-      <Icon name="search" size={25} color="#080808" />
-      <Icon name="camera" size={25} color="#08`0808" />
-      <Icon name="heart" size={25} color="#080808" />
-      <Icon name="user" size={25} color="#080808" />
+      <Image
+        style={styles.imageStyle}
+        resizeMethod='resize'
+        resizeMode='stretch'
+        source={{ uri: 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202212/instagram-users-irked-with-the-new-update-sixteen_nine.jpg?size=1200:675' }}
+      />
     </View>
   )
 }
@@ -21,12 +23,17 @@ const TopBar = () => {
 export default TopBar
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        flexDirection:'row',
-        borderWidth:3,
-        borderColor:'black',
-        justifyContent:'space-evenly',
-        alignItems:'center'
-    }
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 0
+  },
+  imageStyle: {
+    height: '100%',
+    width: '30%',
+    resizeMode: 'cover'
+  }
 })
