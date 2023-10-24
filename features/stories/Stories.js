@@ -1,17 +1,23 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
 import StoryView from './StoryView'
 
 const Stories = () => {
-    const [storyList, setStoryList] = useState([1,2,3,4,5])
+    const [storyList, setStoryList] = useState([1, 2, 3, 4, 5,4,4,])
+    const renderItem = (item) => (
+        <StoryView />
+    )
     return (
         <View style={styles.container}>
-            {
-                storyList.map((story) => (
-                    <StoryView id={story}/>
-                ))
-            }
+            <FlatList
+                data={storyList}
+                renderItem={renderItem}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                
+            />
+               
         </View>
     )
 }

@@ -18,7 +18,10 @@ export default PostContent
 
 const styles = StyleSheet.create({
     container: {
-        flex: 5,
+        flex:15,
+        borderTopWidth:1,
+        borderBottomWidth:1,
+        borderColor:'#817d7d'
     },
     image: {
         height: '100%',

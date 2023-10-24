@@ -20,6 +20,11 @@ export default PostView
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    flexDirection:'column'
+    flexDirection:'column',
+    borderWidth:1,
+    borderColor:'#cfc5c5',
+    marginVertical:2,
+    borderRadius:10,
+    height:600
   }
 })

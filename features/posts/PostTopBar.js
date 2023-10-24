@@ -18,18 +18,19 @@ export default PostTopBar
 
 const styles = StyleSheet.create({
     container: {
-        height:50,
         width:'100%',
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding:2
     },
     image: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         overflow: 'hidden',
-        borderRadius: 1000
+        borderRadius: 1000,
+        marginLeft:2
     }
 
 })

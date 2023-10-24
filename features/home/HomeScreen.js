@@ -5,22 +5,15 @@ import Stories from '../stories/Stories'
 import TopBar from './TopBar'
 import { useState } from 'react'
 import PostView from '../posts/PostView'
+import Posts from '../posts/Posts'
 
 const HomeScreen = () => {
-    const [posts, setPosts] = useState([1, 2])
+
     return (
         <View style={styles.container}>
             <TopBar style={styles.topBar} />
             <Stories />
-            <View style={styles.feed}>
-                {
-                    posts.map((posts) => (
-
-                        <PostView />
-
-                    ))
-                }
-            </View>
+            <Posts />
             <BottomBar style={styles.bottomBar} />
         </View>
     )
@@ -39,7 +32,7 @@ const styles = StyleSheet.create({
     feed: {
         flex: 14,
         width: '100%',
-     
+
     },
     bottomBar: {
         flex: 1,

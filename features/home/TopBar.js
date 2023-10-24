@@ -24,16 +24,21 @@ export default TopBar
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1.5,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingVertical: 0
+    paddingVertical: 0,
+    borderBottomWidth:1,
+    borderBottomColor:'#e2d8d8',
+    overflow:'hidden',
+
   },
   imageStyle: {
-    height: '100%',
-    width: '30%',
-    resizeMode: 'cover'
+    height: 100,
+    width: '50%',
+    resizeMode: 'cover',
+  
   }
 })
