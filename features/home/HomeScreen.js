@@ -14,7 +14,7 @@ const HomeScreen = () => {
             <TopBar style={styles.topBar} />
             <Stories />
             <Posts />
-            <BottomBar style={styles.bottomBar} />
+         
         </View>
     )
 }
@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
+        paddingTop:25,
+        paddingHorizontal:5,
+        backgroundColor:'white'
     },
     stories: {
 
