@@ -2,23 +2,26 @@ import { View, Text, StyleSheet, Button, Image } from 'react-native'
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HomeScreen from '../home/HomeScreen'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faMugSaucer } from '@fortawesome/free-solid-svg-icons/faMagicWandSparkles'
+import UserPostList from './UserPostList';
+import Posts from '../posts/Posts';
 const Profile = () => {
   const Tab = createMaterialTopTabNavigator();
   return (
     <View style={styles.container}>
       <View style={styles.profileTopBar}>
-        <Icon name='search'/>
+        <FontAwesomeIcon icon={faMugSaucer} />
         <View style={{
-          flex:1,
-          flexDirection:'row'
+          flex: 1,
+          flexDirection: 'row'
         }}>
           <Text>rohan.tkd</Text>
-          <Icon name=''/>
+          <FontAwesomeIcon icon={faMugSaucer} />
         </View>
       </View>
       <View style={styles.userInfo}>
-        <View  style={styles.userImageView}>
+        <View style={styles.userImageView}>
           <Image style={styles.userImage} />
           <Text>Rohan.tkd</Text>
         </View>
@@ -28,25 +31,25 @@ const Profile = () => {
         </View>
       </View>
       <View style={styles.profileDetails}>
-        <View>
+        <View style={styles.profileDetailsItem}>
           <Text>22</Text>
-          <Text>Post</Text>
+          <Text>Posts</Text>
         </View>
-        <View>
+        <View style={styles.profileDetailsItem}>
           <Text>22</Text>
-          <Text>Post</Text>
+          <Text>followers</Text>
         </View>
-        <View>
+        <View style={styles.profileDetailsItem}>
           <Text>22</Text>
-          <Text>Post</Text>
+          <Text>following</Text>
         </View>
       </View>
       <View style={styles.profileContent}>
         <Tab.Navigator>
-          <Tab.Screen name="postsGrid" component={HomeScreen} />
-          <Tab.Screen name="postsStack" component={HomeScreen} />
-          <Tab.Screen name="save" component={HomeScreen} />
-          <Tab.Screen name="tag" component={HomeScreen} />
+          <Tab.Screen name="postsGrid" children={() => <UserPostList />} />
+          <Tab.Screen name="postsStack" component={Posts} />
+          <Tab.Screen name="save" children={() => <UserPostList />} />
+          <Tab.Screen name="tag" children={() => <UserPostList />} />
         </Tab.Navigator>
       </View>
     </View >
@@ -64,39 +67,49 @@ const styles = StyleSheet.create({
   userInfo: {
     flex: 2,
     flexDirection: 'row',
-    width:'100%',
-    justifyContent:'flex-start',
-    borderWidth:1,
-    borderColor:'black'
+    width: '100%',
+    justifyContent: 'flex-start',
+    borderWidth: 1,
+    borderColor: 'black'
   },
   profileDetails: {
     flex: 1,
     flexDirection: 'row',
-    borderWidth:1,
-    borderColor:'black',
-    justifyContent:'space-evenly'
+    borderWidth: 1,
+    borderColor: '#b4abab',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   },
   profileContent: {
     flex: 8
   },
-  userImageView:{
-    flex:1
-  },userImage:{
-    height:60,
-    width:60,
-    borderWidth:1,
-    borderColor:'black',
-    borderRadius:1000,
-    margin:10
+  userImageView: {
+    flex: 1,
+    flexDirection:'column',
+    alignItems:'center'
   },
-  userDetails:{
-    width:'60%',
-    flex:2,
+  userImage: {
+    height: 60,
+    width: 60,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 1000,
+    margin: 10
   },
-  profileTopBar:{
-    flex:1,
-    flexDirection:'row',
-    width:'100%',
-    justifyContent:'space-evenly'
+  userDetails: {
+    width: '60%',
+    flex: 2,
+  },
+  profileTopBar: {
+    flex: 1,
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-evenly'
+  },
+  profileDetailsItem: {
+    marginHorizontal: 30,
+    flex: 1,
+    alignItems: 'center',
+    width: '100%',
   }
 })

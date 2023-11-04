@@ -8,12 +8,12 @@ import PostView from '../posts/PostView'
 import Posts from '../posts/Posts'
 
 const HomeScreen = () => {
-
+    const [posts, setPosts] = useState([1, 2, 3, 4, 5])
     return (
         <View style={styles.container}>
             <TopBar style={styles.topBar} />
             <Stories />
-            <Posts />
+            <Posts postList={posts}/>
          
         </View>
     )
