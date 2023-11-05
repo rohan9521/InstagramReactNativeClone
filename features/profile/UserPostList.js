@@ -4,7 +4,7 @@ import Posts from '../posts/Posts'
 import PostContent from '../posts/content/PostContent'
 
 const UserPostList = (props) => {
-    const [posts, setPosts] = useState([1, 2, 3, 4, 5])
+    const [posts, setPosts] = useState([1, 2, 3, 4, 5,1, 2, 3, 4, 5,1, 2, 3, 4, 5])
     const renderGridItem = ({ item }) => (
         <View  style={styles.imageContainer}>
             <Image

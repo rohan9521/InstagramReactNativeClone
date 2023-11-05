@@ -2,32 +2,40 @@ import { View, Text, StyleSheet, Button, Image } from 'react-native'
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HomeScreen from '../home/HomeScreen'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { faMugSaucer } from '@fortawesome/free-solid-svg-icons/faMagicWandSparkles'
 import UserPostList from './UserPostList';
 import Posts from '../posts/Posts';
+import CustomButton from '../../components/CustomButton';
 const Profile = () => {
   const Tab = createMaterialTopTabNavigator();
   return (
     <View style={styles.container}>
       <View style={styles.profileTopBar}>
-        <FontAwesomeIcon icon={faMugSaucer} />
+        <View ><FontAwesomeIcon name='gears' size={30} /></View>
         <View style={{
-          flex: 1,
-          flexDirection: 'row'
+          flexDirection: 'row',
+
         }}>
-          <Text>rohan.tkd</Text>
-          <FontAwesomeIcon icon={faMugSaucer} />
+          <Text >rohan.tkd</Text>
+          <View><FontAwesomeIcon name='chevron-down' /></View>
         </View>
+        <View ><FontAwesomeIcon name='user-plus' size={25} /></View>
       </View>
       <View style={styles.userInfo}>
         <View style={styles.userImageView}>
-          <Image style={styles.userImage} />
+          <Image
+            style={styles.userImage}
+            source={{
+              uri: "https://static.toiimg.com/thumb/msid-100267644,width-1280,resizemode-4/100267644.jpg"
+            }}
+          />
           <Text>Rohan.tkd</Text>
         </View>
         <View style={styles.userDetails}>
-          <Text>Rohan.tkd</Text>
-          <Button title='Edit Profile' />
+          <Text style={{ marginHorizontal: 20 }}>Rohan.tkd</Text>
+          <CustomButton title='Edit Profile' width={30} color={'#959990'} />
         </View>
       </View>
       <View style={styles.profileDetails}>
@@ -46,10 +54,43 @@ const Profile = () => {
       </View>
       <View style={styles.profileContent}>
         <Tab.Navigator>
-          <Tab.Screen name="postsGrid" children={() => <UserPostList />} />
-          <Tab.Screen name="postsStack" component={Posts} />
-          <Tab.Screen name="save" children={() => <UserPostList />} />
-          <Tab.Screen name="tag" children={() => <UserPostList />} />
+          <Tab.Screen name="postsGrid"
+            options={
+              {
+                tabBarIcon: () => (<FontAwesomeIcon color='#3288cf' name='building-o' size={20} />),
+                tabBarShowLabel: false
+              }
+            } children={() => <UserPostList />} />
+          <Tab.Screen
+            name="postsStack"
+            component={Posts}
+            options={
+              {
+                tabBarIcon: () => (<FontAwesomeIcon color='#3288cf' name='server' size={20} />),
+                tabBarShowLabel: false
+              }
+            }
+          />
+          <Tab.Screen
+            name="save"
+            children={() => <UserPostList />}
+            options={
+              {
+                tabBarIcon: () => (<FontAwesomeIcon name='save' color='#3288cf' size={20} />),
+                tabBarShowLabel: false
+              }
+            }
+          />
+          <Tab.Screen
+            name="tag"
+            children={() => <UserPostList />}
+            options={
+              {
+                tabBarIcon: () => (<FontAwesomeIcon name='tag' color='#3288cf ' size={20} />),
+                tabBarShowLabel: false
+              }
+            }
+          />
         </Tab.Navigator>
       </View>
     </View >
@@ -65,15 +106,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   userInfo: {
-    flex: 2,
+    flex: 5,
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'flex-start',
-    borderWidth: 1,
-    borderColor: 'black'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   profileDetails: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#b4abab',
@@ -81,30 +121,36 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   profileContent: {
-    flex: 8
+    flex: 15
   },
   userImageView: {
-    flex: 1,
-    flexDirection:'column',
-    alignItems:'center'
+    flex: 2,
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '100%',
+    justifyContent: 'center',
   },
   userImage: {
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 1000,
-    margin: 10
+    margin: 5
   },
   userDetails: {
     width: '60%',
-    flex: 2,
+    flex: 5,
+    justifyContent: 'center'
   },
   profileTopBar: {
-    flex: 1,
+    flex: 1.5,
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#b4abab'
   },
   profileDetailsItem: {
     marginHorizontal: 30,
