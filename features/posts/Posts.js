@@ -4,8 +4,11 @@ import { useState } from 'react'
 import PostView from './PostView'
 
 const Posts = (props) => {
-  const [posts, setPosts] = useState([1, 2, 3, 4, 5])
+  const [posts, setPosts] = useState  ([1, 2, 3, 4, 5])
   const renderItem = ({ item }) => (
+    <PostView />
+  );
+  const renderGridItem = ({ item }) => (
     <PostView />
   );
   return (

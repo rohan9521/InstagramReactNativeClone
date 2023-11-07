@@ -8,13 +8,13 @@ import PostView from '../posts/PostView'
 import Posts from '../posts/Posts'
 
 const HomeScreen = () => {
-
+    const [posts, setPosts] = useState([1, 2, 3, 4, 5])
     return (
         <View style={styles.container}>
             <TopBar style={styles.topBar} />
             <Stories />
-            <Posts />
-            <BottomBar style={styles.bottomBar} />
+            <Posts postList={posts}/>
+         
         </View>
     )
 }
@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
+        paddingTop:25,
+        paddingHorizontal:5,
+        backgroundColor:'white'
     },
     stories: {
 
