@@ -3,7 +3,7 @@ import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import HomeScreen from '../home/HomeScreen'
 
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 import { faMugSaucer } from '@fortawesome/free-solid-svg-icons/faMagicWandSparkles'
 import UserPostList from './UserPostList';
 import Posts from '../posts/Posts';
@@ -13,7 +13,7 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <View style={styles.profileTopBar}>
-        <View ><FontAwesomeIcon name='gears' size={30} /></View>
+        <View ><FontAwesomeIcon name='cog' size={20} /></View>
         <View style={{
           flexDirection: 'row',
 
@@ -21,7 +21,7 @@ const Profile = () => {
           <Text >rohan.tkd</Text>
           <View><FontAwesomeIcon name='chevron-down' /></View>
         </View>
-        <View ><FontAwesomeIcon name='user-plus' size={25} /></View>
+        <View ><FontAwesomeIcon name='user-plus' size={20} /></View>
       </View>
       <View style={styles.userInfo}>
         <View style={styles.userImageView}>

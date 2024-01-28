@@ -8,7 +8,6 @@ import Search from '../search/Search';
 import Explore from '../explore/Explore'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Reels from '../reels/Reels';
-import ChatList from '../chat/ChatList';
 import Chat from '../chat/Chat';
 
 const DashBoard = () => {
